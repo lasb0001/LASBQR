@@ -113,6 +113,14 @@ async function startScanner() {
     });
 
     if (result?.ScanResult) {
-      alert(result.Scan
+      alert(result.ScanResult);
+    } else {
+      alert("No QR code detected.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert(err?.message || "Scanner failed.");
+  }
+}
 
 render();

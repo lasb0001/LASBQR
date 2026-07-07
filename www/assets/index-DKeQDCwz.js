@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-CFl6YVaZ.js","assets/definitions-Dh3PTAqS.js"])))=>i.map(i=>d[i]);
-(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();function e(){return`
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-B46-hUWr.js","assets/definitions-BREwZXrq.js"])))=>i.map(i=>d[i]);
+var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=Object.getOwnPropertyNames,i=Object.getPrototypeOf,a=Object.prototype.hasOwnProperty,o=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),s=(e,i,o,s)=>{if(i&&typeof i==`object`||typeof i==`function`)for(var c=r(i),l=0,u=c.length,d;l<u;l++)d=c[l],!a.call(e,d)&&d!==o&&t(e,d,{get:(e=>i[e]).bind(null,d),enumerable:!(s=n(i,d))||s.enumerable});return e},c=(n,r,a)=>(a=n==null?{}:e(i(n)),s(r||!n||!n.__esModule?t(a,`default`,{value:n,enumerable:!0}):a,n));(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();function l(){return`
   <div class="home">
 
     <header class="brand">
@@ -86,7 +86,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-CFl6YVaZ.js
     </nav>
 
   </div>
-  `}function t(){return`
+  `}function u(){return`
   <div class="home">
 
     <header class="brand">
@@ -126,7 +126,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-CFl6YVaZ.js
     </nav>
 
   </div>
-  `}function n(){return`
+  `}function d(){return`
   <div class="home">
 
     <header class="brand">
@@ -225,7 +225,7 @@ Las B. All rights reserved.
     </nav>
 
   </div>
-  `}function r(){return`
+  `}function f(){return`
   <div class="home">
 
     <header class="brand">
@@ -272,7 +272,7 @@ Las B. All rights reserved.
     </nav>
 
   </div>
-  `}function i(){return`
+  `}function p(){return`
   <div class="home">
 
     <header class="brand">
@@ -319,7 +319,7 @@ Las B. All rights reserved.
     </nav>
 
   </div>
-  `}function a(){return`
+  `}function m(){return`
   <div class="home">
 
     <header class="brand">
@@ -366,8 +366,13 @@ Las B. All rights reserved.
     </nav>
 
   </div>
-  `}var o=`modulepreload`,s=function(e){return`/`+e},c={},l=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function l(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}function u(e){return import.meta.resolve?import.meta.resolve(e):new URL(e,new URL(`../../../src/node/plugins/importAnalysisBuild.ts`,import.meta.url)).href}r=l(t.map(t=>{if(t=s(t,n),t=u(t),t in c)return;c[t]=!0;let r=t.endsWith(`.css`);for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}let i=document.createElement(`link`);if(i.rel=r?`stylesheet`:o,r||(i.as=`script`),i.crossOrigin=``,i.href=t,a&&i.setAttribute(`nonce`,a),document.head.appendChild(i),r)return new Promise((e,n)=>{i.addEventListener(`load`,e),i.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},u=document.getElementById(`app`);function d(o=`home`){switch(o){case`history`:u.innerHTML=t();break;case`settings`:u.innerHTML=n();break;case`generator`:u.innerHTML=r();break;case`scanner`:u.innerHTML=i();break;case`contact`:u.innerHTML=a();break;default:u.innerHTML=e();break}f()}function f(){document.getElementById(`homeNav`)?.addEventListener(`click`,()=>d(`home`)),document.getElementById(`historyNav`)?.addEventListener(`click`,()=>d(`history`)),document.getElementById(`generatorNav`)?.addEventListener(`click`,()=>d(`generator`)),document.getElementById(`settingsNav`)?.addEventListener(`click`,()=>d(`settings`)),document.getElementById(`seeAll`)?.addEventListener(`click`,()=>d(`history`)),document.getElementById(`scanButton`)?.addEventListener(`click`,()=>d(`scanner`)),document.getElementById(`searchButton`)?.addEventListener(`click`,()=>{alert(`Search feature coming soon.`)}),document.getElementById(`aboutCard`)?.addEventListener(`click`,()=>{alert(`QuickScan QR
+  `}var h=`modulepreload`,g=function(e){return`/`+e},_={},v=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function o(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}function s(e){return import.meta.resolve?import.meta.resolve(e):new URL(e,new URL(`../../../src/node/plugins/importAnalysisBuild.ts`,import.meta.url)).href}r=o(t.map(t=>{if(t=g(t,n),t=s(t),t in _)return;_[t]=!0;let r=t.endsWith(`.css`);for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}let i=document.createElement(`link`);if(i.rel=r?`stylesheet`:h,r||(i.as=`script`),i.crossOrigin=``,i.href=t,a&&i.setAttribute(`nonce`,a),document.head.appendChild(i),r)return new Promise((e,n)=>{i.addEventListener(`load`,e),i.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},y=document.getElementById(`app`);function b(e=`home`){switch(e){case`history`:y.innerHTML=u();break;case`settings`:y.innerHTML=d();break;case`generator`:y.innerHTML=f();break;case`scanner`:y.innerHTML=p();break;case`contact`:y.innerHTML=m();break;default:y.innerHTML=l();break}x()}function x(){document.getElementById(`homeNav`)?.addEventListener(`click`,()=>b(`home`)),document.getElementById(`historyNav`)?.addEventListener(`click`,()=>b(`history`)),document.getElementById(`generatorNav`)?.addEventListener(`click`,()=>b(`generator`)),document.getElementById(`settingsNav`)?.addEventListener(`click`,()=>b(`settings`)),document.getElementById(`seeAll`)?.addEventListener(`click`,()=>b(`history`)),document.getElementById(`scanButton`)?.addEventListener(`click`,()=>b(`scanner`)),document.getElementById(`searchButton`)?.addEventListener(`click`,()=>{alert(`Search feature coming soon.`)}),document.getElementById(`aboutCard`)?.addEventListener(`click`,()=>{alert(`QuickScan QR
 
 Version 1.0.0
 
-Developed by Las B`)}),document.getElementById(`themeCard`)?.addEventListener(`click`,()=>{document.body.classList.toggle(`light-theme`),alert(`Theme button clicked`)}),document.getElementById(`contactQR`)?.addEventListener(`click`,()=>{d(`contact`)}),document.getElementById(`emailQR`)?.addEventListener(`click`,()=>{alert(`Email QR Generator`)}),document.getElementById(`startScanner`)?.addEventListener(`click`,p)}async function p(){try{let{BarcodeScanner:e,CapacitorBarcodeScannerTypeHintALLOption:t,CapacitorBarcodeScannerAndroidScanningLibrary:n,CapacitorBarcodeScannerCameraDirection:r,CapacitorBarcodeScannerScanOrientation:i}=await l(async()=>{let{BarcodeScanner:e,CapacitorBarcodeScannerTypeHintALLOption:t,CapacitorBarcodeScannerAndroidScanningLibrary:n,CapacitorBarcodeScannerCameraDirection:r,CapacitorBarcodeScannerScanOrientation:i}=await import(`./esm-CFl6YVaZ.js`);return{BarcodeScanner:e,CapacitorBarcodeScannerTypeHintALLOption:t,CapacitorBarcodeScannerAndroidScanningLibrary:n,CapacitorBarcodeScannerCameraDirection:r,CapacitorBarcodeScannerScanOrientation:i}},__vite__mapDeps([0,1])),a=await e.scanBarcode({hint:t.ALL,scanInstructions:`Place the QR code inside the frame`,scanText:`Scan`,cameraDirection:r.BACK,scanOrientation:i.PORTRAIT,android:{scanningLibrary:n.MLKIT}});a?.ScanResult?alert(a.ScanResult):alert(`No QR code detected.`)}catch(e){console.log(e),alert(`Scanner failed.`)}}d();export{l as t};
+Developed by Las B`)}),document.getElementById(`themeCard`)?.addEventListener(`click`,()=>{document.body.classList.toggle(`light-theme`),alert(`Theme button clicked`)}),document.getElementById(`contactQR`)?.addEventListener(`click`,()=>{b(`contact`)}),document.getElementById(`emailQR`)?.addEventListener(`click`,()=>{alert(`Email QR Generator`)}),document.getElementById(`startScanner`)?.addEventListener(`click`,C)}document.getElementById(`generateContactQR`)?.addEventListener(`click`,S);async function S(){let e=(await v(async()=>{let{default:e}=await import(`./browser-Ckr8p2Ku.js`).then(e=>c(e.default));return{default:e}},[])).default,t=document.getElementById(`contactName`).value.trim(),n=document.getElementById(`contactPhone`).value.trim(),r=document.getElementById(`contactEmail`).value.trim();if(!t||!n){alert(`Please enter at least a name and phone number.`);return}let i=`BEGIN:VCARD
+VERSION:3.0
+FN:${t}
+TEL:${n}
+EMAIL:${r}
+END:VCARD`,a=await e.toDataURL(i);document.getElementById(`qrResult`).innerHTML=`<img src="${a}" style="width:220px;border-radius:16px;">`}async function C(){try{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await v(async()=>{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await import(`./esm-B46-hUWr.js`);return{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}},__vite__mapDeps([0,1])),n=await e.scanBarcode({hint:t.ALL});n?.ScanResult?alert(n.ScanResult):alert(`No QR code detected.`)}catch(e){console.error(e),alert(e?.message||`Scanner failed.`)}}b();export{o as n,c as r,v as t};
