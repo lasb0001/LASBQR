@@ -1,5 +1,4 @@
 import "./style.css";
-
 import {
   AdMob,
   BannerAdSize,
@@ -85,17 +84,23 @@ function bindEvents() {
 });
 }
 
-async function generateContactQR() {
-  const QRCode = (await import("qrcode")).default;
+async function initAdMob() {
+  try {
+    await AdMob.initialize();
 
-  const name = document.getElementById("contactName").value.trim();
-  const phone = document.getElementById("contactPhone").value.trim();
-  const email = document.getElementById("contactEmail").value.trim();
+    await AdMob.showBanner({
+      adId: "ca-app-pub-7968114534973295/8551876611",
+      adSize: BannerAdSize.BANNER,
+      position: BannerAdPosition.BOTTOM_CENTER,
+      margin: 0,
+      isTesting: true,
+    });
 
-  if (!name || !phone) {
-    alert("Please enter at least a name and phone number.");
-    return;
+    console.log("AdMob banner loaded");
+  } catch (error) {
+    console.error("AdMob failed:", error);
   }
+}
 
   const vcard =
 `BEGIN:VCARD
@@ -149,24 +154,6 @@ if (result?.ScanResult) {
   } catch (err) {
     console.error(err);
     alert(err?.message || "Scanner failed.");
-  }
-}
-
-async function initAdMob() {
-  try {
-    await AdMob.initialize();
-
-    await AdMob.showBanner({
-      adId: "ca-app-pub-7968114534973295/8551876611",
-      adSize: BannerAdSize.BANNER,
-      position: BannerAdPosition.BOTTOM_CENTER,
-      margin: 0,
-      isTesting: true,
-    });
-
-    console.log("AdMob banner loaded");
-  } catch (error) {
-    console.error("AdMob failed:", error);
   }
 }
 
