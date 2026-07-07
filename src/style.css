@@ -10,7 +10,8 @@ font-family:Poppins,sans-serif;
 body{
 background:#071321;
 color:#fff;
-overflow:hidden;
+overflow-y:auto;
+overflow-x:hidden;
 }
 
 #app{
@@ -19,6 +20,7 @@ min-height:100vh;
 
 .home{
 padding:24px;
+padding-bottom:120px;
 display:flex;
 flex-direction:column;
 min-height:100vh;
@@ -179,4 +181,33 @@ font-weight:600;
 
 .nav-item.active{
 color:#4ea5ff;
+}
+
+body.light-theme{
+background:#f5f7fb;
+color:#111;
+}
+
+body.light-theme .home{
+background:#f5f7fb;
+}
+
+body.light-theme .recent-card{
+background:#ffffff;
+color:#111;
+}
+
+body.light-theme .bottom-nav{
+background:#ffffff;
+}
+
+body.light-theme .brand p,
+body.light-theme .subtitle p,
+body.light-theme .recent-card p{
+color:#555;
+}
+
+body.light-theme .search-btn{
+background:#e9eef8;
+color:#111;
 }

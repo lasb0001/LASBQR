@@ -11,19 +11,17 @@ export function Generator() {
 
     <div class="recent" style="margin-top:30px">
 
-      <div class="recent-card">🌐 Website</div>
+      <div class="recent-card" id="contactQR">
+        <strong>📞 Contact QR</strong>
+        <p>Create a QR code for a contact.</p>
+      </div>
+
       <br>
 
-      <div class="recent-card">📝 Text</div>
-      <br>
-
-      <div class="recent-card">📶 Wi-Fi</div>
-      <br>
-
-      <div class="recent-card">📞 Contact</div>
-      <br>
-
-      <div class="recent-card">📧 Email</div>
+      <div class="recent-card" id="emailQR">
+        <strong>📧 Email QR</strong>
+        <p>Create a QR code for an email address.</p>
+      </div>
 
     </div>
 

@@ -5,6 +5,7 @@ import { History } from "./history.js";
 import { Settings } from "./settings.js";
 import { Generator } from "./generator.js";
 import { Scanner } from "./scanner.js";
+import { Contact } from "./contact.js";
 
 const app = document.getElementById("app");
 
@@ -26,6 +27,10 @@ function render(page = "home") {
       app.innerHTML = Scanner();
       break;
 
+    case "contact":
+      app.innerHTML = Contact();
+  break;
+
     default:
       app.innerHTML = Home();
       break;
@@ -35,13 +40,9 @@ function render(page = "home") {
 }
 
 function bindEvents() {
-
   document.getElementById("homeNav")?.addEventListener("click", () => render("home"));
-
   document.getElementById("historyNav")?.addEventListener("click", () => render("history"));
-
   document.getElementById("generatorNav")?.addEventListener("click", () => render("generator"));
-
   document.getElementById("settingsNav")?.addEventListener("click", () => render("settings"));
 
   document.getElementById("seeAll")?.addEventListener("click", () => render("history"));
@@ -53,39 +54,55 @@ function bindEvents() {
   });
 
   document.getElementById("aboutCard")?.addEventListener("click", () => {
-    alert("QuickScan QR\nVersion 1.0.0\n\nDeveloped by Las B");
+    alert("QuickScan QR\n\nVersion 1.0.0\n\nDeveloped by Las B");
   });
 
   document.getElementById("themeCard")?.addEventListener("click", () => {
-    document.body.classList.toggle("light-theme");
-  });
+  document.body.classList.toggle("light-theme");
+    alert("Theme button clicked");
+});
+
+  document.getElementById("contactQR")?.addEventListener("click", () => {
+    render("contact");
+});
+
+  document.getElementById("emailQR")?.addEventListener("click", () => {
+    alert("Email QR Generator");
+});
 
   document.getElementById("startScanner")?.addEventListener("click", startScanner);
-
 }
 
 async function startScanner() {
   try {
-    const { BarcodeScanner } = await import("@capacitor/barcode-scanner");
+    const {
+      BarcodeScanner,
+      CapacitorBarcodeScannerTypeHintALLOption,
+      CapacitorBarcodeScannerAndroidScanningLibrary,
+      CapacitorBarcodeScannerCameraDirection,
+      CapacitorBarcodeScannerScanOrientation,
+    } = await import("@capacitor/barcode-scanner");
 
-    const permission = await BarcodeScanner.checkPermission({
-      force: true,
+    const result = await BarcodeScanner.scanBarcode({
+      hint: CapacitorBarcodeScannerTypeHintALLOption.ALL,
+      scanInstructions: "Place the QR code inside the frame",
+      scanText: "Scan",
+      cameraDirection: CapacitorBarcodeScannerCameraDirection.BACK,
+      scanOrientation: CapacitorBarcodeScannerScanOrientation.PORTRAIT,
+      android: {
+        scanningLibrary:
+          CapacitorBarcodeScannerAndroidScanningLibrary.MLKIT,
+      },
     });
 
-    if (!permission.granted) {
-      alert("Camera permission denied.");
-      return;
+    if (result?.ScanResult) {
+      alert(result.ScanResult);
+    } else {
+      alert("No QR code detected.");
     }
-
-    const result = await BarcodeScanner.scan();
-
-    if (result.hasContent) {
-      alert(result.content);
-    }
-
-  } catch (e) {
-    console.error(e);
-    alert("Scanner error.");
+  } catch (err) {
+    console.log(err);
+    alert("Scanner failed.");
   }
 }
 
