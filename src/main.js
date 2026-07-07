@@ -1,44 +1,16 @@
 import "./style.css";
+import { Home } from "./home.js";
 
-document.querySelector("#app").innerHTML = `
-<div class="app">
+const app = document.getElementById("app");
 
-    <header class="header">
-        <h1>QuickScan QR</h1>
-        <p>by <span>Las B</span></p>
-    </header>
+function renderHome() {
+  app.innerHTML = Home();
 
-    <section class="hero">
+  const scanButton = document.getElementById("scanButton");
 
-        <div class="scan-circle">
-            <button id="scanBtn">
-                <i class="fas fa-qrcode"></i>
-            </button>
-        </div>
+  scanButton.addEventListener("click", () => {
+    alert("Scanner screen coming next...");
+  });
+}
 
-        <h2>Scan smarter.</h2>
-        <p>Fast, secure and beautiful QR scanning.</p>
-
-    </section>
-
-    <section class="cards">
-
-        <div class="card">
-            <i class="fas fa-qrcode"></i>
-            <h3>Generate</h3>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-clock-rotate-left"></i>
-            <h3>History</h3>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-gear"></i>
-            <h3>Settings</h3>
-        </div>
-
-    </section>
-
-</div>
-`;
+renderHome();
