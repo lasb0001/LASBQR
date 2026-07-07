@@ -75,8 +75,8 @@ export function Home() {
         🕘<br>History
       </div>
 
-      <div class="nav-item" id="generatorNav">
-        ✨<br>Generate
+      <div class="nav-item" id="scanNav">
+        📷<br>Scan
       </div>
 
       <div class="nav-item" id="settingsNav">

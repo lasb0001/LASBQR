@@ -35,8 +35,8 @@ export function Scanner() {
         🕘<br>History
       </div>
 
-      <div class="nav-item" id="generatorNav">
-        ✨<br>Generate
+      <div class="nav-item active" id="scanNav">
+        📷<br>Scan
       </div>
 
       <div class="nav-item" id="settingsNav">

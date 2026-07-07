@@ -36,7 +36,7 @@ Fast, secure and modern QR code and barcode scanner built for everyday use.<br><
 
 ✓ QR Code Scanner<br>
 ✓ Barcode Scanner<br>
-✓ QR Generator<br>
+✓ Instant QR Scanning<br>
 ✓ Scan History<br>
 ✓ Share Results<br><br>
 
@@ -63,18 +63,6 @@ Las B. All rights reserved.
 
       <br>
 
-      <div class="recent-card">
-        <strong>⭐ Rate App</strong>
-        <p>Rate QuickScan QR on the Play Store</p>
-      </div>
-
-      <br>
-
-      <div class="recent-card">
-        <strong>📤 Share App</strong>
-        <p>Share QuickScan QR with friends</p>
-      </div>
-
     </div>
 
     <nav class="bottom-nav">
@@ -87,8 +75,8 @@ Las B. All rights reserved.
         🕘<br>History
       </div>
 
-      <div class="nav-item" id="generatorNav">
-        ✨<br>Generate
+      <div class="nav-item" id="scanNav">
+        📷<br>Scan
       </div>
 
       <div class="nav-item active" id="settingsNav">

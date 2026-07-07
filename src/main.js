@@ -42,7 +42,7 @@ function render(page = "home") {
 function bindEvents() {
   document.getElementById("homeNav")?.addEventListener("click", () => render("home"));
   document.getElementById("historyNav")?.addEventListener("click", () => render("history"));
-  document.getElementById("generatorNav")?.addEventListener("click", () => render("generator"));
+  document.getElementById("scanNav")?.addEventListener("click", () => render("scanner"));
   document.getElementById("settingsNav")?.addEventListener("click", () => render("settings"));
 
   document.getElementById("seeAll")?.addEventListener("click", () => render("history"));
@@ -71,9 +71,8 @@ function bindEvents() {
 });
 
   document.getElementById("startScanner")?.addEventListener("click", startScanner);
-}
-
   document.getElementById("generateContactQR")?.addEventListener("click", generateContactQR);
+}
 
 async function generateContactQR() {
   const QRCode = (await import("qrcode")).default;
@@ -112,11 +111,17 @@ async function startScanner() {
       hint: CapacitorBarcodeScannerTypeHint.ALL,
     });
 
-    if (result?.ScanResult) {
-      alert(result.ScanResult);
-    } else {
-      alert("No QR code detected.");
-    }
+if (result?.ScanResult) {
+  const text = result.ScanResult;
+
+  if (text.startsWith("http://") || text.startsWith("https://")) {
+    location.href = text;
+  } else {
+    alert(text);
+  }
+} else {
+  alert("No QR code detected.");
+}
   } catch (err) {
     console.error(err);
     alert(err?.message || "Scanner failed.");
