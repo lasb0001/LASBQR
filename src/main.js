@@ -9,9 +9,7 @@ import { Scanner } from "./scanner.js";
 const app = document.getElementById("app");
 
 function render(page = "home") {
-
   switch (page) {
-
     case "history":
       app.innerHTML = History();
       break;
@@ -31,47 +29,43 @@ function render(page = "home") {
     default:
       app.innerHTML = Home();
       break;
-
   }
 
   bindEvents();
-
 }
 
 function bindEvents() {
 
-  document.getElementById("homeNav")?.onclick = () => render("home");
+  document.getElementById("homeNav")?.addEventListener("click", () => render("home"));
 
-  document.getElementById("historyNav")?.onclick = () => render("history");
+  document.getElementById("historyNav")?.addEventListener("click", () => render("history"));
 
-  document.getElementById("generatorNav")?.onclick = () => render("generator");
+  document.getElementById("generatorNav")?.addEventListener("click", () => render("generator"));
 
-  document.getElementById("settingsNav")?.onclick = () => render("settings");
+  document.getElementById("settingsNav")?.addEventListener("click", () => render("settings"));
 
-  document.getElementById("seeAll")?.onclick = () => render("history");
+  document.getElementById("seeAll")?.addEventListener("click", () => render("history"));
 
-  document.getElementById("scanButton")?.onclick = () => render("scanner");
+  document.getElementById("scanButton")?.addEventListener("click", () => render("scanner"));
 
-  document.getElementById("searchButton")?.onclick = () => {
+  document.getElementById("searchButton")?.addEventListener("click", () => {
     alert("Search feature coming soon.");
-  };
+  });
 
-  document.getElementById("aboutCard")?.onclick = () => {
+  document.getElementById("aboutCard")?.addEventListener("click", () => {
     alert("QuickScan QR\nVersion 1.0.0\n\nDeveloped by Las B");
-  };
+  });
 
-  document.getElementById("themeCard")?.onclick = () => {
+  document.getElementById("themeCard")?.addEventListener("click", () => {
     document.body.classList.toggle("light-theme");
-  };
+  });
 
-  document.getElementById("startScanner")?.onclick = startScanner;
+  document.getElementById("startScanner")?.addEventListener("click", startScanner);
 
 }
 
 async function startScanner() {
-
   try {
-
     const { BarcodeScanner } = await import("@capacitor/barcode-scanner");
 
     const permission = await BarcodeScanner.checkPermission({
@@ -86,20 +80,13 @@ async function startScanner() {
     const result = await BarcodeScanner.scan();
 
     if (result.hasContent) {
-
       alert(result.content);
-
-      // History saving comes next.
-
     }
 
   } catch (e) {
-
     console.error(e);
     alert("Scanner error.");
-
   }
-
 }
 
 render();
