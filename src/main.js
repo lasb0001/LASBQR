@@ -73,37 +73,46 @@ function bindEvents() {
   document.getElementById("startScanner")?.addEventListener("click", startScanner);
 }
 
+  document.getElementById("generateContactQR")?.addEventListener("click", generateContactQR);
+
+async function generateContactQR() {
+  const QRCode = (await import("qrcode")).default;
+
+  const name = document.getElementById("contactName").value.trim();
+  const phone = document.getElementById("contactPhone").value.trim();
+  const email = document.getElementById("contactEmail").value.trim();
+
+  if (!name || !phone) {
+    alert("Please enter at least a name and phone number.");
+    return;
+  }
+
+  const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL:${phone}
+EMAIL:${email}
+END:VCARD`;
+
+  const qr = await QRCode.toDataURL(vcard);
+
+  document.getElementById("qrResult").innerHTML =
+    `<img src="${qr}" style="width:220px;border-radius:16px;">`;
+}
+
 async function startScanner() {
   try {
     const {
-      BarcodeScanner,
-      CapacitorBarcodeScannerTypeHintALLOption,
-      CapacitorBarcodeScannerAndroidScanningLibrary,
-      CapacitorBarcodeScannerCameraDirection,
-      CapacitorBarcodeScannerScanOrientation,
+      CapacitorBarcodeScanner,
+      CapacitorBarcodeScannerTypeHint,
     } = await import("@capacitor/barcode-scanner");
 
-    const result = await BarcodeScanner.scanBarcode({
-      hint: CapacitorBarcodeScannerTypeHintALLOption.ALL,
-      scanInstructions: "Place the QR code inside the frame",
-      scanText: "Scan",
-      cameraDirection: CapacitorBarcodeScannerCameraDirection.BACK,
-      scanOrientation: CapacitorBarcodeScannerScanOrientation.PORTRAIT,
-      android: {
-        scanningLibrary:
-          CapacitorBarcodeScannerAndroidScanningLibrary.MLKIT,
-      },
+    const result = await CapacitorBarcodeScanner.scanBarcode({
+      hint: CapacitorBarcodeScannerTypeHint.ALL,
     });
 
     if (result?.ScanResult) {
-      alert(result.ScanResult);
-    } else {
-      alert("No QR code detected.");
-    }
-  } catch (err) {
-    console.log(err);
-    alert("Scanner failed.");
-  }
-}
+      alert(result.Scan
 
 render();
