@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LAS B QR Scanner</string>
+    <string name="title_activity_main">LAS B QR Scanner</string>
+    <string name="package_name">com.lasb.qrscanner</string>
+    <string name="custom_url_scheme">com.lasb.qrscanner</string>
+</resources>
