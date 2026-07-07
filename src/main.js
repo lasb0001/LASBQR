@@ -4,12 +4,14 @@ import { Home } from "./home.js";
 import { History } from "./history.js";
 import { Settings } from "./settings.js";
 import { Generator } from "./generator.js";
+import { Scanner } from "./scanner.js";
 
 const app = document.getElementById("app");
 
 function render(page = "home") {
 
   switch (page) {
+
     case "history":
       app.innerHTML = History();
       break;
@@ -22,34 +24,81 @@ function render(page = "home") {
       app.innerHTML = Generator();
       break;
 
+    case "scanner":
+      app.innerHTML = Scanner();
+      break;
+
     default:
       app.innerHTML = Home();
+      break;
+
   }
 
   bindEvents();
+
 }
 
 function bindEvents() {
 
-  document.getElementById("homeNav")?.addEventListener("click", () => {
-    render("home");
-  });
+  document.getElementById("homeNav")?.onclick = () => render("home");
 
-  document.getElementById("historyNav")?.addEventListener("click", () => {
-    render("history");
-  });
+  document.getElementById("historyNav")?.onclick = () => render("history");
 
-  document.getElementById("generatorNav")?.addEventListener("click", () => {
-    render("generator");
-  });
+  document.getElementById("generatorNav")?.onclick = () => render("generator");
 
-  document.getElementById("settingsNav")?.addEventListener("click", () => {
-    render("settings");
-  });
+  document.getElementById("settingsNav")?.onclick = () => render("settings");
 
-  document.getElementById("scanButton")?.addEventListener("click", () => {
-    alert("Scanner will be connected next.");
-  });
+  document.getElementById("seeAll")?.onclick = () => render("history");
+
+  document.getElementById("scanButton")?.onclick = () => render("scanner");
+
+  document.getElementById("searchButton")?.onclick = () => {
+    alert("Search feature coming soon.");
+  };
+
+  document.getElementById("aboutCard")?.onclick = () => {
+    alert("QuickScan QR\nVersion 1.0.0\n\nDeveloped by Las B");
+  };
+
+  document.getElementById("themeCard")?.onclick = () => {
+    document.body.classList.toggle("light-theme");
+  };
+
+  document.getElementById("startScanner")?.onclick = startScanner;
+
+}
+
+async function startScanner() {
+
+  try {
+
+    const { BarcodeScanner } = await import("@capacitor/barcode-scanner");
+
+    const permission = await BarcodeScanner.checkPermission({
+      force: true,
+    });
+
+    if (!permission.granted) {
+      alert("Camera permission denied.");
+      return;
+    }
+
+    const result = await BarcodeScanner.scan();
+
+    if (result.hasContent) {
+
+      alert(result.content);
+
+      // History saving comes next.
+
+    }
+
+  } catch (e) {
+
+    console.error(e);
+    alert("Scanner error.");
+
+  }
 
 }
 
