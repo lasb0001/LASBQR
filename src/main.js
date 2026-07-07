@@ -71,7 +71,13 @@ function bindEvents() {
 });
 
   document.getElementById("startScanner")?.addEventListener("click", startScanner);
+
   document.getElementById("generateContactQR")?.addEventListener("click", generateContactQR);
+
+  document.getElementById("clearHistory")?.addEventListener("click", () => {
+  localStorage.removeItem("scanHistory");
+  render("history");
+});
 }
 
 async function generateContactQR() {
@@ -100,6 +106,17 @@ END:VCARD`;
     `<img src="${qr}" style="width:220px;border-radius:16px;">`;
 }
 
+function saveHistory(text) {
+  const history = JSON.parse(localStorage.getItem("scanHistory") || "[]");
+
+  history.unshift({
+    text,
+    date: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("scanHistory", JSON.stringify(history));
+}
+
 async function startScanner() {
   try {
     const {
@@ -113,6 +130,8 @@ async function startScanner() {
 
 if (result?.ScanResult) {
   const text = result.ScanResult;
+
+  saveHistory(text);
 
   if (text.startsWith("http://") || text.startsWith("https://")) {
     location.href = text;

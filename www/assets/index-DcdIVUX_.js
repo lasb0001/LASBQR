@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-fL6ck85c.js","assets/definitions-CIAk5tW3.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/esm-BqswSIxF.js","assets/definitions-POqtWUbo.js"])))=>i.map(i=>d[i]);
 var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=Object.getOwnPropertyNames,i=Object.getPrototypeOf,a=Object.prototype.hasOwnProperty,o=(e,t)=>()=>(t||(e((t={exports:{}}).exports,t),e=null),t.exports),s=(e,i,o,s)=>{if(i&&typeof i==`object`||typeof i==`function`)for(var c=r(i),l=0,u=c.length,d;l<u;l++)d=c[l],!a.call(e,d)&&d!==o&&t(e,d,{get:(e=>i[e]).bind(null,d),enumerable:!(s=n(i,d))||s.enumerable});return e},c=(n,r,a)=>(a=n==null?{}:e(i(n)),s(r||!n||!n.__esModule?t(a,`default`,{value:n,enumerable:!0}):a,n));(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();function l(){return`
   <div class="home">
 
@@ -86,7 +86,19 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
     </nav>
 
   </div>
-  `}function u(){return`
+  `}function u(){let e=JSON.parse(localStorage.getItem(`scanHistory`)||`[]`),t=``;return t=e.length===0?`
+      <div class="recent-card">
+        <strong>No history yet</strong>
+        <p>Your scanned QR codes will appear here automatically.</p>
+      </div>
+    `:e.map(e=>`
+<div class="recent-card"
+     style="margin-bottom:15px;cursor:pointer;"
+     onclick="window.open('${e.text}','_blank')">
+  <strong>${e.text}</strong>
+  <p>${e.date}</p>
+</div>
+    `).join(``),`
   <div class="home">
 
     <header class="brand">
@@ -96,33 +108,19 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
       </div>
     </header>
 
-    <div class="recent" style="margin-top:40px">
-
-      <div class="recent-card">
-        <strong>No history yet</strong>
-
-        <p>
-          Your scanned QR codes will appear here automatically.
-        </p>
-
-      </div>
-
+    <div class="recent" style="margin-top:35px">
+<button id="clearHistory"
+style="margin-bottom:20px;padding:12px 18px;border:none;border-radius:12px;background:#2563EB;color:white;font-weight:600;">
+Clear History
+</button>
+      ${t}
     </div>
 
     <nav class="bottom-nav">
-
-      <div class="nav-item" id="homeNav">
-        🏠<br>Home
-      </div>
-
-      <div class="nav-item active" id="historyNav">
-        🕘<br>History
-      </div>
-
-      <div class="nav-item" id="settingsNav">
-        ⚙<br>Settings
-      </div>
-
+      <div class="nav-item" id="homeNav">🏠<br>Home</div>
+      <div class="nav-item active" id="historyNav">🕘<br>History</div>
+      <div class="nav-item" id="scanNav">📷<br>Scan</div>
+      <div class="nav-item" id="settingsNav">⚙<br>Settings</div>
     </nav>
 
   </div>
@@ -358,9 +356,9 @@ Las B. All rights reserved.
 
 Version 1.0.0
 
-Developed by Las B`)}),document.getElementById(`themeCard`)?.addEventListener(`click`,()=>{document.body.classList.toggle(`light-theme`),alert(`Theme button clicked`)}),document.getElementById(`contactQR`)?.addEventListener(`click`,()=>{b(`contact`)}),document.getElementById(`emailQR`)?.addEventListener(`click`,()=>{alert(`Email QR Generator`)}),document.getElementById(`startScanner`)?.addEventListener(`click`,C),document.getElementById(`generateContactQR`)?.addEventListener(`click`,S)}async function S(){let e=(await v(async()=>{let{default:e}=await import(`./browser-D0C0CvLy.js`).then(e=>c(e.default));return{default:e}},[])).default,t=document.getElementById(`contactName`).value.trim(),n=document.getElementById(`contactPhone`).value.trim(),r=document.getElementById(`contactEmail`).value.trim();if(!t||!n){alert(`Please enter at least a name and phone number.`);return}let i=`BEGIN:VCARD
+Developed by Las B`)}),document.getElementById(`themeCard`)?.addEventListener(`click`,()=>{document.body.classList.toggle(`light-theme`),alert(`Theme button clicked`)}),document.getElementById(`contactQR`)?.addEventListener(`click`,()=>{b(`contact`)}),document.getElementById(`emailQR`)?.addEventListener(`click`,()=>{alert(`Email QR Generator`)}),document.getElementById(`startScanner`)?.addEventListener(`click`,w),document.getElementById(`generateContactQR`)?.addEventListener(`click`,S),document.getElementById(`clearHistory`)?.addEventListener(`click`,()=>{localStorage.removeItem(`scanHistory`),b(`history`)})}async function S(){let e=(await v(async()=>{let{default:e}=await import(`./browser-D2IKGqxp.js`).then(e=>c(e.default));return{default:e}},[])).default,t=document.getElementById(`contactName`).value.trim(),n=document.getElementById(`contactPhone`).value.trim(),r=document.getElementById(`contactEmail`).value.trim();if(!t||!n){alert(`Please enter at least a name and phone number.`);return}let i=`BEGIN:VCARD
 VERSION:3.0
 FN:${t}
 TEL:${n}
 EMAIL:${r}
-END:VCARD`,a=await e.toDataURL(i);document.getElementById(`qrResult`).innerHTML=`<img src="${a}" style="width:220px;border-radius:16px;">`}async function C(){try{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await v(async()=>{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await import(`./esm-fL6ck85c.js`);return{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}},__vite__mapDeps([0,1])),n=await e.scanBarcode({hint:t.ALL});if(n?.ScanResult){let e=n.ScanResult;e.startsWith(`http://`)||e.startsWith(`https://`)?location.href=e:alert(e)}else alert(`No QR code detected.`)}catch(e){console.error(e),alert(e?.message||`Scanner failed.`)}}b();export{o as n,c as r,v as t};
+END:VCARD`,a=await e.toDataURL(i);document.getElementById(`qrResult`).innerHTML=`<img src="${a}" style="width:220px;border-radius:16px;">`}function C(e){let t=JSON.parse(localStorage.getItem(`scanHistory`)||`[]`);t.unshift({text:e,date:new Date().toLocaleString()}),localStorage.setItem(`scanHistory`,JSON.stringify(t))}async function w(){try{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await v(async()=>{let{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}=await import(`./esm-BqswSIxF.js`);return{CapacitorBarcodeScanner:e,CapacitorBarcodeScannerTypeHint:t}},__vite__mapDeps([0,1])),n=await e.scanBarcode({hint:t.ALL});if(n?.ScanResult){let e=n.ScanResult;C(e),e.startsWith(`http://`)||e.startsWith(`https://`)?location.href=e:alert(e)}else alert(`No QR code detected.`)}catch(e){console.error(e),alert(e?.message||`Scanner failed.`)}}b();export{o as n,c as r,v as t};
