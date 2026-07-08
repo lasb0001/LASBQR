@@ -26,13 +26,13 @@ jobs:
 
       - name: Decode Keystore
         run: |
-    echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/../lasbqr-release-key.jks
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > lasbqr-release-key.jks
 
-- name: Verify Keystore
-  run: |
-    ls -la
-    ls -la android
-    test -f lasbqr-release-key.jks && echo "✅ Keystore found"
+      - name: Verify Keystore
+        run: |
+          ls -la
+          ls -la android
+          test -f lasbqr-release-key.jks && echo "✅ Keystore found"
 
       - name: Create keystore.properties
         run: |
@@ -52,7 +52,10 @@ jobs:
       - name: Build Release AAB
         run: |
           cd android
-          ./gradlew bundleRelease
+          pwd
+          ls -la ..
+          cat keystore.properties
+          ./gradlew bundleRelease --stacktrace
 
       - name: Upload Release AAB
         uses: actions/upload-artifact@v4
