@@ -28,6 +28,12 @@ jobs:
         run: |
     echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/../lasbqr-release-key.jks
 
+- name: Verify Keystore
+  run: |
+    ls -la
+    ls -la android
+    test -f lasbqr-release-key.jks && echo "✅ Keystore found"
+
       - name: Create keystore.properties
         run: |
           cat > android/keystore.properties <<EOF
