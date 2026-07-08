@@ -26,7 +26,7 @@ jobs:
 
       - name: Decode Keystore
         run: |
-          echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/lasbqr-release-key.jks
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/app/lasbqr-release-key.jks
 
       - name: Verify Keystore
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: Create keystore.properties
         run: |
           cat > android/keystore.properties <<EOF
-          storeFile=lasbqr-release-key.jks
+          storeFile=app/lasbqr-release-key.jks
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
           keyAlias=${{ secrets.KEY_ALIAS }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
