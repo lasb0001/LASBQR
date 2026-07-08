@@ -30,17 +30,14 @@ jobs:
 
       - name: Verify Keystore
         run: |
-          echo "Root:"
-          ls -la
-          echo "Android:"
           ls -la android
-          echo "Android app:"
           ls -la android/app
+          test -f android/app/lasbqr-release-key.jks && echo "Keystore exists" || echo "Keystore NOT found"
 
       - name: Create keystore.properties
         run: |
           cat > android/keystore.properties <<EOF
-          storeFile=app/lasbqr-release-key.jks
+          storeFile=lasbqr-release-key.jks
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
           keyAlias=${{ secrets.KEY_ALIAS }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
