@@ -30,9 +30,12 @@ jobs:
 
       - name: Verify Keystore
         run: |
+          echo "Root:"
           ls -la
+          echo "Android:"
           ls -la android
-          test -f android/lasbqr-release-key.jks && echo "✅ Keystore found"
+          echo "Android app:"
+          ls -la android/app
 
       - name: Create keystore.properties
         run: |
@@ -54,6 +57,7 @@ jobs:
           cd android
           pwd
           ls -la
+          ls -la app
           cat keystore.properties
           ./gradlew bundleRelease --stacktrace
 
