@@ -64,13 +64,13 @@ jobs:
           name: LASBQR-Release-AAB
           path: android/app/build/outputs/bundle/release/app-release.aab
 
-      - name: Build Debug APK
+      - name: Build Release APK
         run: |
-          cd android
-          ./gradlew assembleDebug
+              cd android
+              ./gradlew assembleRelease
 
-      - name: Upload Debug APK
+      - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: LASBQR-Debug-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+        name: LASBQR-Release-APK
+        path: android/app/build/outputs/apk/release/app-release.apk
